@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hallazgos Diagnósticos — Grupo CORSAL</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #111009;
+    --paper: #F7F4EF;
+    --cream: #EDE8DF;
+    --gold: #B8964A;
+    --gold-light: #F5EDD8;
+    --red: #C03228;
+    --red-light: #FAE8E7;
+    --amber: #C47B1A;
+    --amber-light: #FBF3E3;
+    --green: #2F6644;
+    --green-light: #E4F0EA;
+    --border: #D8D0C0;
+    --muted: #7A7060;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── PORTADA ── */
+  .portada {
+    background: var(--ink);
+    padding: 56px 64px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .portada::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,150,74,.18) 0%, transparent 70%);
+  }
+  .portada::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .portada-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+  }
+  .portada-brand {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .portada-fecha {
+    font-size: 11px;
+    color: rgba(255,255,255,.35);
+    letter-spacing: .06em;
+  }
+
+  .portada-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 600;
+    color: white;
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    margin-bottom: 16px;
+  }
+  .portada-titulo span { color: var(--gold); }
+
+  .portada-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,.45);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 36px;
+  }
+
+  .portada-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item { }
+  .meta-label {
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.3);
+    margin-bottom: 3px;
+  }
+  .meta-val {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+  }
+
+  /* ── LEYENDA ── */
+  .leyenda {
+    padding: 16px 64px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ley-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 4px;
+  }
+  .ley-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .ley-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── TABLA ── */
+  .tabla-wrap {
+    padding: 40px 64px 60px;
+  }
+
+  .tabla-header {
+    display: grid;
+    grid-template-columns: 28px 220px 1fr 1fr 1fr 52px;
+    gap: 0;
+    padding: 10px 16px;
+    margin-bottom: 6px;
+  }
+  .th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .fila {
+    display: grid;
+    grid-template-columns: 28px 220px 1fr 1fr 1fr 52px;
+    gap: 0;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: box-shadow .2s, transform .15s;
+    animation: fadeUp .4s ease both;
+  }
+  .fila:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    transform: translateY(-1px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fila:nth-child(1)  { animation-delay: .04s; }
+  .fila:nth-child(2)  { animation-delay: .08s; }
+  .fila:nth-child(3)  { animation-delay: .12s; }
+  .fila:nth-child(4)  { animation-delay: .16s; }
+  .fila:nth-child(5)  { animation-delay: .20s; }
+  .fila:nth-child(6)  { animation-delay: .24s; }
+  .fila:nth-child(7)  { animation-delay: .28s; }
+  .fila:nth-child(8)  { animation-delay: .32s; }
+  .fila:nth-child(9)  { animation-delay: .36s; }
+  .fila:nth-child(10) { animation-delay: .40s; }
+  .fila:nth-child(11) { animation-delay: .44s; }
+  .fila:nth-child(12) { animation-delay: .48s; }
+
+  /* ACENTO LATERAL por urgencia */
+  .acento {
+    width: 28px;
+    display: flex;
+    align-items: stretch;
+  }
+  .acento-bar {
+    width: 4px;
+    margin: 8px 0 8px 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .bar-red    { background: var(--red); }
+  .bar-amber  { background: var(--amber); }
+  .bar-green  { background: var(--green); }
+
+  /* CELDAS */
+  .celda {
+    padding: 14px 14px 14px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #F0EDE7;
+  }
+  .celda:last-child { border-right: none; }
+  .celda-hallazgo { padding-left: 4px; }
+
+  .h-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 3px;
+    letter-spacing: .06em;
+  }
+  .h-nombre {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  .celda-texto {
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.65;
+  }
+
+  .celda-linea {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.65;
+    font-weight: 500;
+  }
+
+  /* SEMÁFORO */
+  .celda-sem {
+    justify-content: center;
+    align-items: center;
+    padding: 14px 8px;
+    border-right: none;
+  }
+  .sem-circulo {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sem-red    { background: var(--red); box-shadow: 0 0 0 3px var(--red-light); }
+  .sem-amber  { background: var(--amber); box-shadow: 0 0 0 3px var(--amber-light); }
+  .sem-green  { background: var(--green); box-shadow: 0 0 0 3px var(--green-light); }
+
+  /* RIESGO con pill */
+  .riesgo-pill {
+    font-size: 11.5px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* SEPARADOR DE GRUPO */
+  .grupo-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0 10px;
+  }
+  .grupo-line { flex: 1; height: 1px; background: var(--border); }
+  .grupo-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .gt-red   { background: var(--red-light);   color: var(--red); }
+  .gt-amber { background: var(--amber-light);  color: var(--amber); }
+  .gt-green { background: var(--green-light);  color: var(--green); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 24px 64px 32px;
+    font-size: 11px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-brand { font-weight: 600; color: var(--ink); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .portada { padding: 36px 24px 32px; }
+    .leyenda { padding: 12px 24px; }
+    .tabla-wrap { padding: 24px 16px 40px; }
+    .tabla-header { display: none; }
+    .fila {
+      grid-template-columns: 8px 1fr;
+      grid-template-rows: auto auto auto auto;
+    }
+    .acento { grid-row: 1 / 5; }
+    .acento-bar { margin: 12px 0 12px 6px; width: 3px; }
+    .celda-hallazgo { grid-column: 2; padding: 12px 12px 4px; border-right: none; }
+    .celda-obs { grid-column: 2; padding: 4px 12px; border-right: none; border-top: none; }
+    .celda-riesgo { grid-column: 2; padding: 4px 12px; border-right: none; }
+    .celda-linea-col { grid-column: 2; padding: 4px 12px 12px; border-right: none; }
+    .celda-sem { display: none; }
+    .footer { padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="portada">
+  <div class="portada-top">
+    <div class="portada-brand">Summa Human · Diagnóstico organizacional</div>
+    <div class="portada-fecha">Mayo 2026 · Versión ejecutiva</div>
+  </div>
+  <div class="portada-titulo">12 hallazgos<br><span>preliminares</span><br>Grupo CORSAL</div>
+  <div class="portada-sub">Resumen de entrevistas con directores de área. Cada hallazgo incluye la observación, el riesgo si no se atiende y la línea de trabajo propuesta.</div>
+  <div class="portada-meta">
+    <div class="meta-item"><div class="meta-label">Elaborado por</div><div class="meta-val">Daniel Tapia Sánchez</div></div>
+    <div class="meta-item"><div class="meta-label">Dirigido a</div><div class="meta-val">Marco Corral · Director General</div></div>
+    <div class="meta-item"><div class="meta-label">Fuente</div><div class="meta-val">Entrevistas diagnósticas con gerentes</div></div>
+  </div>
+</div>
+
+<!-- LEYENDA -->
+<div class="leyenda">
+  <span class="ley-label">Prioridad</span>
+  <div class="ley-item"><div class="ley-dot" style="background:var(--red)"></div>Importante y urgente</div>
+  <div class="ley-item"><div class="ley-dot" style="background:var(--amber)"></div>Importante, no urgente</div>
+  <div class="ley-item"><div class="ley-dot" style="background:var(--green)"></div>Factor habilitador</div>
+</div>
+
+<!-- TABLA -->
+<div class="tabla-wrap">
+
+  <!-- ENCABEZADOS -->
+  <div class="tabla-header">
+    <div></div>
+    <div class="th">Hallazgo</div>
+    <div class="th">Observación</div>
+    <div class="th">Riesgo si no se atiende</div>
+    <div class="th">Línea de trabajo propuesta</div>
+    <div class="th" style="text-align:center">Prior.</div>
+  </div>
+
+  <!-- GRUPO 1: URGENTES -->
+  <div class="grupo-label">
+    <div class="grupo-line"></div>
+    <span class="grupo-tag gt-red">Importante y urgente</span>
+    <div class="grupo-line"></div>
+  </div>
+
+  <!-- H1 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-red"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H1</div><div class="h-nombre">Crecimiento sin suficiente estructura</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">Hay ambición de expansión, pero no se percibe una base organizacional igual de sólida para sostenerla.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Crecer con desorden, saturar áreas clave y deteriorar la operación.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Revisar estructura, roles y capacidad real de cada área antes de seguir creciendo.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-red"></div></div>
+  </div>
+
+  <!-- H3 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-red"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H3</div><div class="h-nombre">Fricción entre ventas y administración</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">Es el punto de conflicto más repetido. La comunicación y los procesos entre ambas áreas no están suficientemente claros.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Retrabajos, desgaste interno y freno a la operación comercial.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Alinear procesos interáreas, responsables, tiempos de respuesta y canales de comunicación.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-red"></div></div>
+  </div>
+
+  <!-- H4 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-red"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H4</div><div class="h-nombre">Procesos postventa poco ágiles</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">La adjudicación y entrega generan lentitud, retrabajos y mala experiencia para el cliente.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Pérdida de clientes, quejas recurrentes y desgaste de la marca.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Mapear el proceso postventa y estandarizar los puntos críticos de seguimiento.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-red"></div></div>
+  </div>
+
+  <!-- H6 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-red"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H6</div><div class="h-nombre">Falta de manuales y procesos claros</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">No hay suficiente claridad formal sobre responsabilidades, límites y flujos entre puestos y áreas.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Confusión, duplicidad, omisiones y dependencia de instrucciones informales.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Documentar procesos clave y clarificar funciones por puesto y por área.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-red"></div></div>
+  </div>
+
+  <!-- H9 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-red"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H9</div><div class="h-nombre">Rotación ligada a problemas de gestión</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">La rotación parece influida por cambios de liderazgo, baja motivación y poca claridad en los roles.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Pérdida de talento, mayor costo de reemplazo y menor estabilidad operativa.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Identificar causas reales de rotación y trabajar liderazgo, inducción y claridad de expectativas.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-red"></div></div>
+  </div>
+
+  <!-- GRUPO 2: IMPORTANTES NO URGENTES -->
+  <div class="grupo-label">
+    <div class="grupo-line"></div>
+    <span class="grupo-tag gt-amber">Importante, no urgente</span>
+    <div class="grupo-line"></div>
+  </div>
+
+  <!-- H2 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-amber"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H2</div><div class="h-nombre">Dependencia excesiva de ventas como indicador</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">El desempeño se mide principalmente por ventas, con pocos indicadores complementarios de operación o liderazgo.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Decisiones incompletas y descuido de operación, servicio y liderazgo.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Diseñar tablero básico de indicadores comerciales, operativos y de gestión.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-amber"></div></div>
+  </div>
+
+  <!-- H5 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-amber"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H5</div><div class="h-nombre">Cliente desatendido entre áreas</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">El cliente puede quedar en "limbo" una vez que sale de ventas y entra a procesos administrativos.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Mala experiencia, pérdida de confianza y menor cierre futuro por recomendación negativa.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Definir claramente quién toma al cliente en cada etapa y con qué estándar de atención.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-amber"></div></div>
+  </div>
+
+  <!-- H7 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-amber"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H7</div><div class="h-nombre">Desarrollo de líderes no institucionalizado</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">La formación de nuevos líderes depende del criterio de cada gerente. No hay ruta común ni estándar mínimo.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Liderazgos desiguales y poca continuidad en la cultura de gestión.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Diseñar una ruta básica de desarrollo para gerentes y mandos medios.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-amber"></div></div>
+  </div>
+
+  <!-- H8 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-amber"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H8</div><div class="h-nombre">Reclutamiento costoso y poco eficiente</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">Conseguir candidatos adecuados toma demasiado tiempo y quita foco a los gerentes que deberían estar gestionando.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Vacantes prolongadas, malas contrataciones y desgaste del equipo actual.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Revisar proceso de reclutamiento, perfilado de puestos y filtros iniciales.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-amber"></div></div>
+  </div>
+
+  <!-- H10 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-amber"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H10</div><div class="h-nombre">Necesidad clara de capacitación</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">Hay consenso en que líderes y equipos necesitan más capacitación. El riesgo es capacitar en lo genérico y no en lo real.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Repetición de errores, baja profesionalización y aprendizaje informal insuficiente.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Construir plan de capacitación práctico, breve y ligado a problemas reales.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-amber"></div></div>
+  </div>
+
+  <!-- GRUPO 3: HABILITADORES -->
+  <div class="grupo-label">
+    <div class="grupo-line"></div>
+    <span class="grupo-tag gt-green">Factores habilitadores</span>
+    <div class="grupo-line"></div>
+  </div>
+
+  <!-- H11 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-green"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H11</div><div class="h-nombre">Debilidad en reputación e imagen digital</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">Los comentarios negativos en redes ya están afectando ventas y el clima interno.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Deterioro comercial, pérdida de confianza y dificultad para atraer talento.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Revisar estrategia de reputación, atención de comentarios y comunicación digital.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-green"></div></div>
+  </div>
+
+  <!-- H12 -->
+  <div class="fila">
+    <div class="acento"><div class="acento-bar bar-green"></div></div>
+    <div class="celda celda-hallazgo"><div class="h-num">H12</div><div class="h-nombre">Apertura al cambio del equipo gerencial</div></div>
+    <div class="celda celda-obs"><div class="celda-texto">Los gerentes muestran disposición a mejorar si hay dirección y soporte. Esta apertura es un activo con fecha de caducidad.</div></div>
+    <div class="celda celda-riesgo"><div class="riesgo-pill">Que la apertura se desperdicie y se convierta en frustración si no hay seguimiento.</div></div>
+    <div class="celda celda-linea-col"><div class="celda-linea">Aprovechar esa disposición con un plan por etapas, prioridades claras y seguimiento periódico.</div></div>
+    <div class="celda celda-sem"><div class="sem-circulo sem-green"></div></div>
+  </div>
+
+</div><!-- /tabla-wrap -->
+
+<div class="footer">
+  <div><span class="footer-brand">Summa Human</span> · Daniel Tapia Sánchez</div>
+  <div>Diagnóstico preliminar · Grupo CORSAL · Mayo 2026</div>
+  <div>Uso confidencial · Solo para revisión con Dirección General</div>
+</div>
+
+
+
+</body></html>

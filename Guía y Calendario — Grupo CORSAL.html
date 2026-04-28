@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marco Corral · Guía y Calendario — Grupo CORSAL</title>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #F8F6F1;
+    --surface: #FFFFFF;
+    --border: #E8E3D8;
+    --text: #1C1A16;
+    --muted: #7A7368;
+    --accent: #2B5C3F;
+    --accent-light: #EAF2EC;
+    --accent2: #8B3A1A;
+    --accent2-light: #FAF0EB;
+    --amber: #C47B1A;
+    --amber-light: #FBF3E3;
+    --blue: #1A3D6B;
+    --blue-light: #EAF0F8;
+    --coral: #C04A2F;
+    --coral-light: #FAEDEA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--text);
+    color: white;
+    padding: 28px 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .header-left {}
+  .header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+  .header-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  /* INTRO */
+  .intro-band {
+    background: var(--accent);
+    color: white;
+    padding: 20px 40px;
+    font-size: 14px;
+    line-height: 1.75;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .intro-band-icon { font-size: 22px; flex-shrink: 0; }
+  .intro-band strong { font-weight: 600; }
+
+  /* CONTAINER */
+  .container { max-width: 860px; margin: 0 auto; padding: 36px 28px 60px; }
+
+  /* ETAPA NAV */
+  .etapa-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .btn-etapa {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 1.5px solid var(--border);
+    background: white;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .btn-etapa:hover { border-color: var(--text); color: var(--text); }
+  .btn-etapa.activo { background: var(--text); color: white; border-color: var(--text); }
+
+  /* ETAPA PANEL */
+  .etapa-panel { display: none; }
+  .etapa-panel.visible { display: block; }
+
+  .etapa-intro {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+  .etapa-intro strong { color: var(--text); font-weight: 600; }
+
+  /* ACTIVIDAD */
+  .act-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .act-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+
+  .act-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .act-header:hover { background: #FAFAF8; }
+
+  .act-semana {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+  }
+  .s-blue { background: var(--blue-light); color: var(--blue); }
+  .s-teal { background: var(--accent-light); color: var(--accent); }
+  .s-amber { background: var(--amber-light); color: var(--amber); }
+  .s-coral { background: var(--coral-light); color: var(--coral); }
+
+  .act-titulo {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+    line-height: 1.4;
+  }
+  .act-chevron {
+    font-size: 12px;
+    color: #bbb;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .act-chevron.open { transform: rotate(180deg); }
+
+  .act-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid #F0EDE7;
+  }
+  .act-body.visible { display: block; }
+
+  /* SECCIONES */
+  .sec-block {
+    margin-top: 18px;
+  }
+  .sec-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 12px;
+  }
+  .sec-label-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-antes { background: var(--blue); }
+  .dot-durante { background: var(--accent); }
+  .dot-despues { background: var(--amber); }
+
+  /* PASOS */
+  .paso {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #FAFAF8;
+  }
+  .paso:last-child { margin-bottom: 0; }
+  .pn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .pn-antes { background: var(--blue-light); color: var(--blue); }
+  .pn-durante { background: var(--accent-light); color: var(--accent); }
+  .pn-despues { background: var(--amber-light); color: var(--amber); }
+  .pt {
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.75;
+  }
+  .pt strong { color: var(--text); }
+  .pt em { color: var(--muted); font-style: italic; }
+
+  /* RECUADROS */
+  .nota {
+    border-radius: 8px;
+    padding: 11px 15px;
+    font-size: 13px;
+    margin-top: 14px;
+    line-height: 1.7;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .nota-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .nota-verde { background: var(--accent-light); color: var(--accent); border: 1px solid #C5DEC9; }
+  .nota-amber { background: var(--amber-light); color: #7A4A10; border: 1px solid #EDD4A0; }
+  .nota-azul { background: var(--blue-light); color: var(--blue); border: 1px solid #B8CEEA; }
+  .nota-coral { background: var(--coral-light); color: var(--coral); border: 1px solid #EFC8BE; }
+
+  .divider { height: 1px; background: var(--border); margin: 16px 0; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 32px;
+    font-size: 12px;
+    color: #bbb;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 20px; flex-direction: column; }
+    .intro-band { padding: 16px 20px; }
+    .container { padding: 24px 16px 48px; }
+    .act-titulo { font-size: 13.5px; }
+  }
+
+  .hall-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px 3px 8px;
+    border-radius: 10px;
+    background: #F0EBE3;
+    color: #6B5A3E;
+    border: 1px solid #DDD3C2;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.01em;
+  }
+  .hall-badge-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .hall-strip {
+    padding: 10px 20px 12px;
+    border-top: 1px solid #F0EDE7;
+    background: #FDFCFA;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .hall-strip-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-right: 4px;
+    flex-shrink: 0;
+  }
+
+
+
+  /* === CALENDARIO ADICIONAL === */
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #F2F0EB;
+    --surface: #FFFFFF;
+    --border: #E2DDD5;
+    --text: #18160F;
+    --muted: #6E6A60;
+    --m-bg: #162038;
+    --m-mid: #1A3D6B;
+    --m-light: #E8EDF5;
+    --m-border: #B8CEEA;
+    --e1: #1A3D6B; --e1l: #E8EDF5;
+    --e2: #2B5C3F; --e2l: #E8F2EC;
+    --e3: #7A4A10; --e3l: #FBF3E3;
+    --e4: #8B2B18; --e4l: #FAEDEA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.65; }
+
+  /* HEADER */
+  .header {
+    background: var(--m-bg); color: white;
+    padding: 30px 40px 26px;
+    display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;
+  }
+  .h-eye { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 7px; }
+  .h-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; line-height: 1.2; }
+  .h-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 6px; }
+  .h-badge { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.75); font-size: 12px; font-weight: 500; padding: 6px 16px; border-radius: 20px; }
+
+  .intro-band {
+    background: var(--m-mid); color: white; padding: 14px 40px;
+    font-size: 13.5px; display: flex; align-items: center; gap: 12px; line-height: 1.7;
+  }
+
+  /* FILTROS */
+  .filtros {
+    background: white; border-bottom: 1px solid var(--border);
+    padding: 12px 30px; display: flex; gap: 8px; flex-wrap: wrap;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .btn-f {
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+    padding: 6px 16px; border-radius: 20px; border: 1.5px solid var(--border);
+    background: white; color: var(--muted); cursor: pointer; transition: all .15s;
+  }
+  .btn-f:hover { border-color: var(--m-mid); color: var(--m-mid); }
+  .btn-f.act { background: var(--m-bg); color: white; border-color: var(--m-bg); }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 28px 24px 60px; }
+
+  /* SEPARADOR DE ETAPA */
+  .sem-row { display: flex; align-items: center; gap: 12px; margin: 24px 0 10px; }
+  .sem-line { flex: 1; height: 1px; background: var(--border); }
+  .sem-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+
+  /* TARJETA */
+  .act-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 14px; margin-bottom: 12px; overflow: hidden;
+  }
+
+  .act-top {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 20px; border-bottom: 1px solid #F0EDE7; flex-wrap: wrap;
+  }
+  .act-num {
+    font-size: 11px; font-weight: 700; padding: 3px 12px;
+    border-radius: 12px; white-space: nowrap;
+  }
+  .e1c { background: var(--e1l); color: var(--e1); }
+  .e2c { background: var(--e2l); color: #2B5C3F; }
+  .e3c { background: var(--e3l); color: var(--e3); }
+  .e4c { background: var(--e4l); color: var(--e4); }
+
+  .act-titulo { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .act-fecha {
+    font-size: 11.5px; font-weight: 700; color: white;
+    background: var(--m-bg); padding: 3px 12px; border-radius: 12px; white-space: nowrap;
+  }
+
+  /* HALL ROW */
+  .hall-row {
+    padding: 7px 20px 9px; background: #FDFCFA;
+    border-bottom: 1px solid #F0EDE7;
+    display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
+  }
+  .hall-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #bbb; margin-right: 3px; }
+  .hbadge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 2px 9px 2px 7px; border-radius: 9px; background: #F0EBE3; color: #6B5A3E; border: 1px solid #DDD3C2; }
+  .hdot { width: 7px; height: 7px; border-radius: 50%; }
+
+  /* BODY */
+  .act-body { padding: 14px 20px; }
+
+  /* ITEMS */
+  .item {
+    display: flex; gap: 9px; align-items: flex-start;
+    margin-bottom: 8px; padding: 9px 12px; border-radius: 8px;
+    background: var(--m-light);
+  }
+  .item:last-child { margin-bottom: 0; }
+  .itag {
+    font-size: 10px; font-weight: 700; padding: 2px 8px;
+    border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+  }
+  .tag-manda   { background: #E8EDF5; color: var(--m-mid); }
+  .tag-recibe  { background: #D6E4F5; color: #0C3B6E; }
+  .tag-valida  { background: #FAEDEA; color: #8B2B18; }
+  .tag-decide  { background: #FBF3E3; color: #7A4A10; }
+  .tag-convoca { background: #E8F2EC; color: #2B5C3F; }
+  .tag-opcional{ background: #F0EBE3; color: #6B5A3E; }
+
+  .itext { font-size: 13px; color: #333; line-height: 1.7; }
+  .itext strong { color: var(--text); }
+
+  /* NOTA */
+  .nota {
+    margin-top: 10px; background: #FBF3E3; border: 1px solid #EDD4A0;
+    border-radius: 8px; padding: 9px 13px; font-size: 12.5px; color: #7A4A10;
+    display: flex; gap: 8px; align-items: flex-start; line-height: 1.65;
+  }
+  .nota-clave {
+    margin-top: 10px; background: #FAEDEA; border: 1px solid #EFC8BE;
+    border-radius: 8px; padding: 9px 13px; font-size: 12.5px; color: #8B2B18;
+    display: flex; gap: 8px; align-items: flex-start; line-height: 1.65;
+  }
+
+  /* SEM INTERMEDIA */
+  .sem-intermedia {
+    background: #F7F5F0; border: 1px dashed var(--border);
+    border-radius: 10px; padding: 10px 18px; margin-bottom: 12px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .sim-label { font-size: 11px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+  .sim-text { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+  /* ETAPA OCULTA */
+  .etapa-block { display: none; }
+  .etapa-block.vis { display: block; }
+
+  .footer { text-align: center; padding: 28px; font-size: 12px; color: #bbb; border-top: 1px solid var(--border); }
+
+  @media(max-width:600px){
+    .header { padding: 22px 20px; }
+    .intro-band { padding: 14px 20px; }
+    .container { padding: 18px 14px 48px; }
+  }
+
+
+  /* === TABS PRINCIPALES === */
+  .main-tabs {
+    display: flex; gap: 8px; padding: 16px 40px 0;
+    background: var(--m-bg);
+  }
+  .main-tab {
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+    padding: 9px 22px; border-radius: 20px 20px 0 0;
+    border: none; cursor: pointer; transition: all .15s;
+    letter-spacing: .01em;
+  }
+  .main-tab.activo { background: var(--bg); color: var(--text); }
+  .main-tab.inactivo { background: rgba(255,255,255,.1); color: rgba(255,255,255,.6); }
+  .main-tab.inactivo:hover { background: rgba(255,255,255,.18); color: white; }
+
+  .seccion-principal { display: none; }
+  .seccion-principal.visible { display: block; }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER ÚNICO -->
+<div class="header">
+  <div>
+    <div class="h-eye">Grupo CORSAL · Tu material de consultoría</div>
+    <div class="h-title">Marco,<br>todo lo que necesitas.</div>
+    <div class="h-sub">Summa Human · Mayo 2026 – Mayo 2027</div>
+  </div>
+  <div class="h-badge">Guía · Calendario · 26 actividades</div>
+</div>
+
+<!-- TABS PRINCIPALES -->
+<div class="main-tabs">
+  <button class="main-tab activo" onclick="verSeccion(&#39;guia&#39;, this)">📋 &nbsp;Guía de actividades</button>
+  <button class="main-tab inactivo" onclick="verSeccion(&#39;calendario&#39;, this)">📅 &nbsp;Calendario y entregables</button>
+</div>
+
+<!-- ======= SECCIÓN GUÍA ======= -->
+<div id="seccion-guia" class="seccion-principal visible">
+<div class="header">
+  <div class="header-left">
+    <div class="header-eyebrow">Summa Human · Consultoría organizacional</div>
+    <div class="header-title">Tu guía de trabajo,<br>Marco.</div>
+    <div class="header-sub">Grupo CORSAL · Mayo 2026 – Mayo 2027</div>
+  </div>
+  <div class="header-badge">26 actividades · 4 etapas · 13 meses</div>
+</div>
+
+<div class="intro-band">
+  <div class="intro-band-icon">📋</div>
+  <div>Esta guía te dice <strong>qué esperar y qué hacer en cada actividad del proceso</strong>. No necesitas saberlo todo de antemano: úsala como referencia antes de cada sesión para llegar preparado, saber qué va a pasar y qué se espera de ti.</div>
+</div>
+
+<div class="container">
+
+  <div class="etapa-nav">
+    <button class="btn-etapa activo" onclick="verEtapa(1,this)">Etapa 1 — Diagnóstico y base</button>
+    <button class="btn-etapa" onclick="verEtapa(2,this)">Etapa 2 — Intervención estructural</button>
+    <button class="btn-etapa" onclick="verEtapa(3,this)">Etapa 3 — Personas y liderazgo</button>
+    <button class="btn-etapa" onclick="verEtapa(4,this)">Etapa 4 — Consolidación y cierre</button>
+  </div>
+
+  <!-- ===================== ETAPA 1 ===================== -->
+  <div class="etapa-panel visible" id="etapa-1">
+    <div class="etapa-intro">
+      <strong>Semanas 1 a 8 · Mayo–Junio 2026 · 7 actividades</strong><br>
+      En esta etapa no se cambia nada todavía. El objetivo es tener un panorama claro de cómo está CORSAL antes de intervenir. Tu rol es abrirte, compartir información con honestidad y priorizar junto con Daniel lo que más importa atender.
+    </div>
+
+    <!-- ACT 1 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-blue">Sem 1 · Act 1</span>
+        <span class="act-titulo">Sesión de arranque y alineación estratégica</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Revisa la propuesta de consultoría que tienes. Si hay algo que no quedó claro o que quieras ajustar, anótalo para tratarlo en esta sesión.</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Piensa en tu respuesta a esta pregunta: <em>¿Qué tiene que haber cambiado en CORSAL al final de estos 13 meses para que este proceso haya valido la pena?</em></div></div>
+          <div class="paso"><div class="pn pn-antes">3</div><div class="pt">Revisa tu agenda y define qué canal prefieres para comunicarte con Daniel entre sesiones: correo, WhatsApp o ambos.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a pedirte permiso para grabar. <strong>Es recomendable que lo permitas</strong>: sirve para no perder ningún acuerdo y para consultar después.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Revisarán juntos el alcance de la consultoría, las reglas de operación y la frecuencia de sesiones. Habla con libertad si algo no te parece práctico.</div></div>
+          <div class="paso"><div class="pn pn-durante">3</div><div class="pt">Al final te leerán en voz alta los acuerdos. Escúchalos con atención y corrígelos si algo no quedó como lo entendiste.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Un acta firmada con los acuerdos base de todo el proceso. Es el punto de referencia si algo no queda claro más adelante.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 2 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-blue">Sem 1 · Act 2</span>
+        <span class="act-titulo">Priorización de los 12 hallazgos diagnósticos</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Revisa los 12 hallazgos del diagnóstico que están en la propuesta. No tienes que estudiarlos a fondo, pero sí que estén frescos en tu memoria.</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Mentalmente, pregúntate: <em>¿Cuáles de estos problemas te están costando más hoy? ¿Cuáles crees que, si se resuelven, mejorarían otras cosas en cadena?</em></div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a mostrarte una tabla con los 12 hallazgos. Por cada uno te va a pedir que lo califiques del 1 al 3 en urgencia, impacto y facilidad de atender. No hay respuesta correcta: tu percepción es lo que vale.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Al final la tabla va a ordenarse sola y van a ver juntos los 3 hallazgos más críticos. Si el orden no te parece correcto, dilo. Esta es tu empresa y tu criterio importa.</div></div>
+        </div>
+        <div class="nota nota-azul">
+          <span class="nota-icon">💡</span>
+          <div><strong>Para qué sirve esto:</strong> El orden que quede aquí va a definir por dónde empieza el trabajo real. Si priorizas mal aquí, el proceso empieza en el lugar equivocado.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 3 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-blue">Sem 3 · Act 3</span>
+        <span class="act-titulo">Diseño del tablero de indicadores de gestión</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H2 · Dependencia excesiva de ventas como indicador</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Piensa: <em>¿Qué números miras tú hoy para saber si el negocio va bien o va mal?</em> Pueden ser ventas, quejas, asistencia, cierres. No importa si no los tienes ordenados — lo que importa es qué te dice algo útil.</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Identifica quién en tu empresa tiene acceso a esos datos y con qué frecuencia los genera.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel te va a mostrar una lista de 15 indicadores posibles. Tu trabajo es elegir 8 a 12 que te digan algo real sobre CORSAL. Si alguno no aplica a tu negocio, descártalo sin problema.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Para cada uno que elijas le dirás: <em>quién tiene ese dato en la empresa</em>, <em>cada cuánto se puede actualizar</em> y <em>cuál sería una meta razonable</em>.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-despues"></span>Después de la sesión</div>
+          <div class="paso"><div class="pn pn-despues">1</div><div class="pt">Daniel va a crear el tablero en Google Sheets y te lo va a compartir con acceso de editor. Asigna a alguien de tu equipo que lo alimente cada mes. Si no hay quién, es algo que hay que resolver antes de empezar.</div></div>
+        </div>
+        <div class="nota nota-amber">
+          <span class="nota-icon">⚠</span>
+          <div><strong>Atención:</strong> Este tablero solo funciona si alguien lo alimenta con constancia. Un tablero vacío no sirve para nada. Define desde hoy quién es el responsable.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 4 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-blue">Sem 5 · Act 4</span>
+        <span class="act-titulo">Diagnóstico de estructura organizacional</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H1 · Crecimiento sin estructura suficiente</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H6 · Falta de manuales y procesos claros</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Una semana antes</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Daniel te va a pedir el organigrama de CORSAL. Si tienes uno, mándalo. Si no tienes uno formal, manda una lista de todas las áreas y quién está a cargo de cada una. No tiene que ser perfecto — lo que existe hoy es suficiente.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a revisar el organigrama juntos. Por cada área Daniel te va a preguntar si tiene un líder claro, si está saturada o si tiene capacidad disponible. Sé directo — esto no es una evaluación de tu equipo, es un diagnóstico.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Presta especial atención si Daniel señala áreas que dependen demasiado de ti directamente. Es uno de los puntos más comunes que frenan el crecimiento en empresas como la tuya.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Un diagnóstico escrito de la estructura actual con hallazgos concretos y propuesta de ajustes. No es una reestructura todavía — es un mapa de lo que hay.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 5 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-blue">Sem 6 · Act 5</span>
+        <span class="act-titulo">Diagnóstico de rotación de personal</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H9 · Rotación ligada a problemas de gestión</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H8 · Reclutamiento costoso y poco eficiente</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Una semana antes</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Daniel te va a pedir información sobre las personas que salieron de CORSAL en los últimos 12 meses: nombre, área, puesto, fecha de salida y motivo si lo tienen. También las vacantes abiertas hoy y desde cuándo.</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Si no tienes esos datos organizados, no te preocupes. Muchas empresas no los tienen. Reúne lo que puedas y el resto se reconstruye en sesión.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel te va a mostrar los datos y te va a preguntar cuál es la razón que generalmente da la gente cuando se va. Luego te preguntará algo más importante: <em>¿Crees que esa es la razón real o la razón que se dicen?</em></div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Esa segunda pregunta es clave. La rotación casi siempre tiene causas más profundas que las que aparecen en la superficie. Tu honestidad aquí acelera el proceso.</div></div>
+        </div>
+        <div class="nota nota-azul">
+          <span class="nota-icon">💡</span>
+          <div><strong>Para qué sirve esto:</strong> Entender por qué se va la gente es el primer paso para bajar la rotación. Sin este diagnóstico, cualquier solución es un disparo a ciegas.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 6 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-blue">Sem 8 · Act 6</span>
+        <span class="act-titulo">Mapeo del proceso postventa</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H4 · Procesos postventa poco ágiles</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H5 · Cliente desatendido entre áreas</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Piensa en esto con calma: <em>Cuando un cliente firma o paga, ¿qué pasa exactamente después? ¿Quién hace qué, en qué orden, hasta que el cliente recibe lo que compró?</em></div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">No lo escribas ni lo prepares en formato. Solo tenlo claro en tu cabeza — Daniel va a ayudarte a ordenarlo en la sesión.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel te va a pedir que describas el proceso paso a paso tal como ocurre hoy, no como debería ocurrir. Describe la realidad, no el ideal.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Por cada paso te va a preguntar: <em>¿Quién lo hace? ¿Cuánto tarda? ¿Qué pasa cuando se retrasa?</em> También van a identificar los puntos donde el cliente no sabe qué está pasando o donde dos áreas se echan la culpa.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Un diagrama visual del proceso postventa con los puntos críticos marcados y 3 mejoras concretas de bajo esfuerzo. Es la base para rediseñarlo después.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 7 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-blue">Sem 8 · Act 7</span>
+        <span class="act-titulo">Presentación ejecutiva de cierre Etapa 1</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">No necesitas preparar nada específico para esta sesión. Es una sesión de revisión, no de trabajo nuevo.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a presentarte un resumen de todo lo que se hizo en las primeras 8 semanas: hallazgos, estructura, rotación, proceso postventa. Tu rol es escuchar y validar.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Cuando lleguen al plan de la Etapa 2, revísalo con cuidado. Si alguna fecha no encaja con tus compromisos o hay algo que quieras ajustar, este es el momento. Lo que quede acordado aquí es el plan que van a seguir.</div></div>
+        </div>
+        <div class="nota nota-amber">
+          <span class="nota-icon">⚠</span>
+          <div><strong>Importante:</strong> A partir de aquí el trabajo cambia. En la Etapa 2 ya se interviene. Necesitas llegar a esta sesión con claridad sobre tu disponibilidad y la de tu equipo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ETAPA 2 ===================== -->
+  <div class="etapa-panel" id="etapa-2">
+    <div class="etapa-intro">
+      <strong>Semanas 9 a 24 · Julio–Octubre 2026 · 7 actividades</strong><br>
+      Aquí ya se interviene. Se toman los hallazgos del diagnóstico y se convierten en procesos, formatos y manuales que tu equipo va a usar. Tu participación es más activa: hay que validar, autorizar y empujar la adopción.
+    </div>
+
+    <!-- ACT 8 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-teal">Sem 10 · Act 8</span>
+        <span class="act-titulo">Rediseño del proceso ventas-administración</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H3 · Fricción entre ventas y administración</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Piensa en los 3 roces más frecuentes entre ventas y administración en CORSAL. ¿Dónde está el punto de mayor conflicto? ¿Qué reclama cada área a la otra con más frecuencia?</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Trae ejemplos concretos si puedes: una situación reciente donde el traspaso entre áreas falló.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a preguntarte cómo funciona el proceso hoy, no cómo debería funcionar. Sé honesto aunque lo que describes sea desorganizado — eso es exactamente lo que hay que mejorar.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Van a diseñar juntos el proceso nuevo. Tus decisiones aquí son las que valen: quién hace qué, en qué tiempos y en qué formato. Daniel propone, tú apruebas.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-despues"></span>Después de la sesión</div>
+          <div class="paso"><div class="pn pn-despues">1</div><div class="pt">Daniel va a enviarte el proceso documentado y un formato de traspaso para que ventas lo use al cerrar cada venta. Revísalo y dale el visto bueno antes de que lo presente al equipo.</div></div>
+        </div>
+        <div class="nota nota-azul">
+          <span class="nota-icon">💡</span>
+          <div><strong>Tu rol clave aquí:</strong> Este cambio solo funciona si tú lo respaldas frente a ambas áreas. Si el equipo percibe que esto viene de la consultoría pero no de ti, lo van a resistir.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 9 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-teal">Sem 12 · Act 9</span>
+        <span class="act-titulo">Estandarización del proceso postventa</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H4 · Procesos postventa poco ágiles</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H6 · Falta de manuales y procesos claros</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Tu participación</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a convertir el mapa del proceso postventa (Act 6) en un manual escrito con pasos claros, responsables y tiempos. Antes de aprobarlo, léelo y valídalo con el gerente del área involucrada.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">La pregunta que debes hacerte al revisarlo: <em>¿Esto refleja lo que realmente pasa? ¿Lo puede seguir alguien nuevo sin que le expliquen nada?</em></div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-despues"></span>Después de aprobarlo</div>
+          <div class="paso"><div class="pn pn-despues">1</div><div class="pt">Acuerden una fecha de inicio de uso. El manual no sirve si queda en Drive sin que nadie lo aplique. Tú o el gerente del área deben comunicarle al equipo que a partir de esa fecha se trabaja así.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Un manual de proceso postventa con checklist que cualquier persona puede seguir. Es el primer estándar real de operación de CORSAL.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 10 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-teal">Sem 14 · Act 10</span>
+        <span class="act-titulo">Protocolo de atención al cliente entre áreas</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H5 · Cliente desatendido entre áreas</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Piensa en los momentos donde el cliente tiene contacto con CORSAL: cuando firma, cuando se le confirma la entrega, cuando pregunta cómo va su pedido, cuando tiene una queja. ¿Quién le habla en cada uno de esos momentos?</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Identifica si hay momentos donde el cliente queda sin respuesta o no sabe con quién hablar. Esos son los puntos que más daño hacen a la reputación.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel te va a proponer un protocolo con tiempos de respuesta y canales para cada momento de contacto. Revísalo y ajusta lo que no sea realista para tu operación.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Presta atención especial al traspaso: ¿quién le avisa al cliente cuando cambia su punto de contacto de ventas a administración? Ese momento es donde más se pierde la confianza del cliente.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Una tabla que define quién habla con el cliente, qué le dice, en cuánto tiempo y por qué canal en cada etapa del proceso.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 11 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-teal">Sem 17 · Act 11</span>
+        <span class="act-titulo">Manual de funciones por puesto y área</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H6 · Falta de manuales y procesos claros</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H1 · Crecimiento sin estructura suficiente</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Identifica los 8-10 puestos más importantes de CORSAL. Empieza por los que más conflictos generan o los que más rotan. Para cada uno, piensa: <em>¿Qué debería hacer esta persona? ¿Qué puede decidir sola y qué necesita autorización?</em></div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Tu participación</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a construir una ficha por puesto con tu input. Cuando el borrador esté listo, pídele a cada gerente de área que lo revise: <em>¿Esto refleja lo que hace realmente esta persona?</em></div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Si un gerente dice que sí a todo sin revisar con cuidado, invítalo a leerlo de nuevo. Estas fichas son un compromiso real, no un documento para guardar.</div></div>
+        </div>
+        <div class="nota nota-amber">
+          <span class="nota-icon">⚠</span>
+          <div><strong>Atención:</strong> Este manual funciona solo si hay consistencia: lo que dice la ficha es lo que se espera y lo que se evalúa. Si hay discrepancias entre lo escrito y lo que pides en el día a día, pierde toda su utilidad.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 12 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-teal">Sem 19 · Act 12</span>
+        <span class="act-titulo">Validación y ajuste del tablero de indicadores</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H2 · Dependencia excesiva de ventas como indicador</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Abre el tablero de KPIs que se creó en la Semana 3. Revisa si tiene datos de los últimos dos meses. Si no los tiene o está incompleto, piensa: <em>¿Por qué no se alimentó? ¿Quién era el responsable?</em> Esa respuesta es importante llevarla a la sesión.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a revisar indicador por indicador. Sé honesto: si un número nunca lo miras, elimínalo. Si hay algo que sí usas para tomar decisiones y no está en el tablero, agrégalo.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">El objetivo es tener un tablero que alguien realmente use, no uno completo que nadie consulta.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Tablero de KPIs versión 2, depurado y asignado con responsables claros de actualización.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 13 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-teal">Sem 21 · Act 13</span>
+        <span class="act-titulo">Revisión de avances y ajuste del plan Etapa 2</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a mostrarte el avance general del proceso. Para lo que está completado: <em>¿Se está usando en la operación real o quedó guardado?</em> Para lo que está atrasado: <em>¿Qué lo bloqueó?</em></div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Esta no es una sesión para justificar retrasos — es para desbloquearlos. Si algo no avanzó por falta de tiempo tuyo o de tu equipo, dilo con claridad para buscar una solución práctica.</div></div>
+        </div>
+        <div class="nota nota-azul">
+          <span class="nota-icon">💡</span>
+          <div><strong>Para qué sirve esto:</strong> Corregir el rumbo antes de terminar la etapa. Es mucho más fácil ajustar aquí que llegar al cierre con actividades que nunca se implementaron realmente.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 14 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-teal">Sem 24 · Act 14</span>
+        <span class="act-titulo">Presentación ejecutiva de cierre Etapa 2</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel te va a presentar el antes y después de cada intervención. La diapositiva más importante es la del proceso ventas-admin: ¿se redujo el conflicto? ¿Los traspasos son más ordenados?</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Al revisar el plan de la Etapa 3, considera la disponibilidad de tus gerentes. La siguiente etapa requiere que ellos participen activamente — no solo tú.</div></div>
+        </div>
+        <div class="nota nota-amber">
+          <span class="nota-icon">⚠</span>
+          <div><strong>Transición importante:</strong> La Etapa 3 es sobre personas y liderazgo. El ritmo de trabajo cambia: habrá talleres, sesiones con gerentes y seguimiento de comportamientos. Anticípales a tu equipo que viene esa etapa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ETAPA 3 ===================== -->
+  <div class="etapa-panel" id="etapa-3">
+    <div class="etapa-intro">
+      <strong>Semanas 25 a 42 · Noviembre 2026–Febrero 2027 · 7 actividades</strong><br>
+      Ya hay procesos documentados. Ahora el trabajo es con las personas: desarrollar líderes, mejorar la selección y reducir la rotación. Esta etapa toma más tiempo en mostrar resultados, pero produce los cambios más duraderos.
+    </div>
+
+    <!-- ACT 15 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-amber">Sem 27 · Act 15</span>
+        <span class="act-titulo">Diseño de ruta de desarrollo para gerentes</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H7 · Desarrollo de líderes no institucionalizado</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Piensa en tus gerentes actuales. Sin filtros: <em>¿Cuál es la habilidad que más le falta a la mayoría de ellos para gestionar bien a su equipo?</em> ¿Dar retroalimentación difícil? ¿Tomar decisiones sin consultarte todo? ¿Manejar conflictos?</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Tu participación</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Con Daniel van a identificar las 4-6 competencias más urgentes. El programa que diseñen será práctico — no un diplomado. Son intervenciones concretas y aplicables a la realidad de CORSAL.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Tu rol cuando el programa esté listo: comunicárselo a los gerentes de manera directa. Que quede claro que esto es una prioridad para ti, no una actividad optativa.</div></div>
+        </div>
+        <div class="nota nota-coral">
+          <span class="nota-icon">🔑</span>
+          <div><strong>Factor decisivo:</strong> Los gerentes van a comprometerse con este proceso exactamente en la medida en que vean que tú lo tomas en serio. Tu respaldo explícito aquí no es un detalle — es lo que lo hace funcionar.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 16 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-amber">Sem 29 · Act 16</span>
+        <span class="act-titulo">Rediseño del proceso de reclutamiento</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H8 · Reclutamiento costoso y poco eficiente</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H9 · Rotación ligada a problemas de gestión</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Describe cómo contratan hoy en CORSAL: ¿cómo avisan que hay una vacante? ¿Quién entrevista? ¿Cuánto tarda en promedio llenar un puesto? Trae ese recorrido en mente.</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Piensa en los 5 puestos que más veces han tenido que contratar en el último año. ¿Qué tienen en común los que no funcionaron?</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Tu participación</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a construir perfiles de selección para los puestos que más rotan y un proceso claro de contratación. Para cada puesto: qué experiencia mínima se necesita, qué habilidades son indispensables y qué descarta automáticamente a un candidato.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Cuando el nuevo proceso esté listo, definen juntos quién en CORSAL va a ser el responsable de seguirlo. Delegar reclutamiento sin proceso definido es la causa más común de contratar mal.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Un proceso de reclutamiento paso a paso con perfiles definidos para los puestos clave. Menos improvisación, menos rotación costosa.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 17 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-amber">Sem 32 · Act 17</span>
+        <span class="act-titulo">Plan de capacitación práctico</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H10 · Necesidad clara de capacitación</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Piensa en los errores que más se repiten en la operación de CORSAL. <em>¿Cuáles de esos errores podrían eliminarse si la gente supiera hacer algo que hoy no sabe o no hace bien?</em></div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Tu participación</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a definir 4-6 temas de capacitación que respondan directamente a esos errores. No son temas genéricos — son específicos para CORSAL.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Se va a armar un calendario de 3 meses. No todo junto: una actividad por mes como mínimo, distribuida para que el equipo pueda asistir sin descuidar la operación.</div></div>
+        </div>
+        <div class="nota nota-amber">
+          <span class="nota-icon">⚠</span>
+          <div><strong>Atención:</strong> Capacitación sin seguimiento no cambia nada. Después de cada sesión, el gerente del área debe verificar que lo aprendido se esté aplicando. Incluyan eso desde el diseño del plan.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 18 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-amber">Sem 34 · Act 18</span>
+        <span class="act-titulo">Primera intervención de liderazgo con gerentes</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#EF9F27;"></span>H7 · Desarrollo de líderes no institucionalizado</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#639922;"></span>H12 · Apertura al cambio del equipo gerencial</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes del taller</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Tu tarea es convocar a los gerentes y comunicarles con claridad que este taller es importante para ti y para la empresa. Sin esa señal de tu parte, la asistencia y el nivel de compromiso van a ser menores.</div></div>
+          <div class="paso"><div class="pn pn-antes">2</div><div class="pt">Confirma la asistencia de todos. Si alguno no puede en la fecha acordada, ajusten antes — no después. Un taller con la mitad del equipo pierde mucho de su valor.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante el taller</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel facilita, tú participas como un integrante más. No como evaluador. Tu presencia activa — no solo de observador — es lo que autoriza a los gerentes a ser honestos.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Al final, cada gerente va a escribir una cosa concreta que va a hacer diferente desde la próxima semana. Tú también puedes asumir uno.</div></div>
+        </div>
+        <div class="nota nota-coral">
+          <span class="nota-icon">🔑</span>
+          <div><strong>Factor decisivo:</strong> Los compromisos que asuman aquí van a ser revisados en sesiones siguientes. No son promesas simbólicas — son el insumo para medir si el liderazgo realmente cambió.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 19 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-amber">Sem 36 · Act 19</span>
+        <span class="act-titulo">Seguimiento a causas de rotación</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#E24B4A;"></span>H9 · Rotación ligada a problemas de gestión</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Trae los datos de rotación de los últimos 4 meses. Con eso pueden comparar directamente contra los números del diagnóstico inicial (Act 5) y ver si algo cambió.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a revisar si las acciones implementadas (nuevo proceso de reclutamiento, manual de funciones, taller de liderazgo) tuvieron impacto en la rotación. Si no lo tuvieron, la pregunta es por qué — y la respuesta casi siempre está en si realmente se están usando.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Si hay causas que persisten, van a diseñar acciones correctivas concretas. No medidas genéricas — acciones específicas con responsable y fecha.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Un reporte comparativo de rotación (antes vs ahora) con acciones correctivas para lo que no mejoró.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 20 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-amber">Sem 40 · Act 20</span>
+        <span class="act-titulo">Revisión de avances Etapa 3</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a revisar el avance general. Las preguntas que guían esta sesión son tres: <em>¿Los gerentes están aplicando lo del taller? ¿El nuevo proceso de reclutamiento se está usando? ¿Bajó, subió o sigue igual la rotación?</em></div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">También van a preparar el terreno para la última etapa: ¿qué quedó pendiente? ¿Qué necesita reforzarse antes del cierre?</div></div>
+        </div>
+        <div class="nota nota-azul">
+          <span class="nota-icon">💡</span>
+          <div><strong>Para qué sirve esto:</strong> Llegar al cierre final con claridad sobre qué cambió de verdad y qué necesita sostenerse después de que termine la consultoría.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 21 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-amber">Sem 42 · Act 21</span>
+        <span class="act-titulo">Presentación ejecutiva de cierre Etapa 3</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a presentar las métricas de personas: ¿bajó la rotación? ¿Cuánto? ¿Las vacantes se llenan más rápido? ¿Cuántos gerentes completaron la ruta de desarrollo?</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">También van a ver los compromisos que asumieron los gerentes en el taller (Act 18) y cuántos los cumplieron. Eso da una imagen honesta de cuánto cambió el liderazgo de tu empresa.</div></div>
+        </div>
+        <div class="nota nota-amber">
+          <span class="nota-icon">⚠</span>
+          <div><strong>Transición importante:</strong> La Etapa 4 es el cierre. El foco cambia: transferirte todo lo construido para que CORSAL pueda sostenerse sola después. Empieza a pensar quién en tu equipo será el custodio de cada proceso.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ETAPA 4 ===================== -->
+  <div class="etapa-panel" id="etapa-4">
+    <div class="etapa-intro">
+      <strong>Semanas 43 a 52 · Marzo–Mayo 2027 · 5 actividades</strong><br>
+      Es la recta final. El objetivo ya no es construir cosas nuevas sino asegurarse de que todo lo que se construyó va a seguir funcionando cuando la consultoría termine. Tu rol aquí es el más importante del proceso.
+    </div>
+
+    <!-- ACT 22 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-coral">Sem 44 · Act 22</span>
+        <span class="act-titulo">Estrategia base de reputación digital</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+<div class="hall-strip"><span class="hall-strip-label">Hallazgo que atiende</span><span class="hall-badge"><span class="hall-badge-dot" style="background:#639922;"></span>H11 · Debilidad en reputación e imagen digital</span></div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-antes"></span>Antes de la sesión</div>
+          <div class="paso"><div class="pn pn-antes">1</div><div class="pt">Busca CORSAL en Google Maps y Facebook. Lee los comentarios que tienen — tanto los positivos como los negativos. Llega a la sesión con una idea de cuántos son, de qué tipo y cuáles son los más repetidos.</div></div>
+        </div>
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Tu participación</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a definir quién en CORSAL responde comentarios, con qué tono y en cuánto tiempo. También van a acordar a qué clientes satisfechos pedirles una reseña y cuándo hacerlo (después de qué momento del proceso).</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Define a la persona responsable de monitorear Google Maps y Facebook una vez por semana. No necesita ser un experto en redes — solo constancia.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Un protocolo de respuesta a comentarios y una estrategia sencilla para generar reseñas positivas de manera sistemática.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 23 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-coral">Sem 47 · Act 23</span>
+        <span class="act-titulo">Reporte de impacto de la consultoría</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Tu participación</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Daniel va a comparar los indicadores actuales con los del arranque (hace 13 meses). Tu aportación es la perspectiva cualitativa: <em>¿Percibes que tu equipo trabaja más ordenado? ¿Hay menos conflictos entre ventas y admin? ¿Los gerentes toman más decisiones solos?</em></div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">El reporte va a incluir también lo que NO se logró. Eso es parte del proceso y es necesario para entender qué necesita atención continua.</div></div>
+        </div>
+        <div class="nota nota-azul">
+          <span class="nota-icon">💡</span>
+          <div><strong>Para qué sirve esto:</strong> Tener un documento honesto del antes y después para tomar decisiones sobre lo que sigue. Y para que tú puedas ver con claridad qué cambió en CORSAL durante este año.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 24 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-coral">Sem 49 · Act 24</span>
+        <span class="act-titulo">Consolidación de entregables y transferencia institucional</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Durante la sesión</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Van a recorrer juntos todas las carpetas del Drive con el material producido durante el año. Daniel te explicará para cada documento: <em>qué es, para qué sirve y quién debe usarlo.</em></div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Para cada material importante van a asignar un custodio en CORSAL — una persona concreta que lo mantenga actualizado. Sin custodio, el documento queda obsoleto en seis meses.</div></div>
+        </div>
+        <div class="nota nota-coral">
+          <span class="nota-icon">🔑</span>
+          <div><strong>Tu decisión más importante de esta etapa:</strong> Asignar custodios que realmente se sientan responsables del material. Que no sea solo un nombre en un documento — que esa persona sepa por qué le corresponde a ella.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 25 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-coral">Sem 51 · Act 25</span>
+        <span class="act-titulo">Sesión de revisión final y aprendizajes</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>Esta sesión es diferente</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">No hay entregable técnico aquí. Es una conversación reflexiva y honesta entre tú y Daniel. Daniel va a abrirla con: <em>¿Qué cambió realmente en CORSAL y qué no?</em> Responde sin filtros.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Las preguntas que guían la sesión: ¿Qué fue lo más valioso del proceso? ¿Qué cambió en tu forma de gestionar? ¿Qué harías diferente si empezaras de nuevo?</div></div>
+          <div class="paso"><div class="pn pn-durante">3</div><div class="pt">También van a identificar los riesgos de retroceso: los procesos que pueden dejar de usarse si nadie los cuida. Sal de aquí con un plan claro para evitar que eso pase.</div></div>
+        </div>
+        <div class="nota nota-verde">
+          <span class="nota-icon">✓</span>
+          <div><strong>Qué sale de aquí:</strong> Una minuta con aprendizajes, compromisos de continuidad y los riesgos de retroceso identificados. Es tu hoja de ruta para los próximos 6 meses sin consultoría.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 26 -->
+    <div class="act-card">
+      <div class="act-header" onclick="toggle(this)">
+        <span class="act-semana s-coral">Sem 52 · Act 26</span>
+        <span class="act-titulo">Presentación ejecutiva final de la consultoría</span>
+        <span class="act-chevron">▼</span>
+      </div>
+      <div class="act-body">
+        <div class="sec-block">
+          <div class="sec-label"><span class="sec-label-dot dot-durante"></span>La sesión de cierre</div>
+          <div class="paso"><div class="pn pn-durante">1</div><div class="pt">Es la sesión más importante de los 13 meses. Daniel va a presentar el recorrido completo: de dónde partió CORSAL y dónde está hoy, qué se construyó y qué impacto tuvo.</div></div>
+          <div class="paso"><div class="pn pn-durante">2</div><div class="pt">Habrá una sección de recomendaciones para los próximos 6 meses. Léelas con atención: son el puente entre lo que se construyó y lo que necesitas sostener por tu cuenta.</div></div>
+          <div class="paso"><div class="pn pn-durante">3</div><div class="pt">Si quieres invitar a alguno de tus gerentes a esta sesión final, es un buen momento para que ellos también vean el antes y el después.</div></div>
+        </div>
+        <div class="nota nota-coral">
+          <span class="nota-icon">🔑</span>
+          <div><strong>Lo que te llevas:</strong> Un documento de cierre con todo lo construido, el impacto medido y un mapa claro de lo que necesita seguir vivo en CORSAL para que el trabajo de este año no se pierda.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ======= SECCIÓN CALENDARIO ======= -->
+<div id="seccion-calendario" class="seccion-principal">
+  <div class="intro-band">
+    📋 &nbsp;Para cada actividad encuentras la <strong>fecha límite</strong>, <strong>qué debes mandar o preparar</strong>, <strong>qué vas a recibir</strong> y <strong>qué decisión o validación se espera de ti</strong>.
+  </div>
+  <div class="filtros" id="filtros-cal" style="position: sticky; top: 0px; z-index: 100;">
+    <button class="btn-f" onclick="filtrarCal(&#39;todas&#39;,this)">Todas las etapas</button>
+    <button class="btn-f act" onclick="filtrarCal(&#39;e1&#39;,this)">Etapa 1</button>
+    <button class="btn-f" onclick="filtrarCal(&#39;e2&#39;,this)">Etapa 2</button>
+    <button class="btn-f" onclick="filtrarCal(&#39;e3&#39;,this)">Etapa 3</button>
+    <button class="btn-f" onclick="filtrarCal(&#39;e4&#39;,this)">Etapa 4</button>
+  </div>
+  <div class="h-title">Marco,<br>esto es lo que te toca.</div>
+    <div class="h-sub">Summa Human · Mayo 2026 – Mayo 2027</div>
+  </div>
+  <div class="h-badge">26 actividades · 4 etapas · 13 meses</div>
+
+
+<div class="container">
+
+<!-- ========== ETAPA 1 ========== -->
+<div class="etapa-block vis" data-etapa="e1">
+  <div class="sem-row"><div class="sem-line"></div><span class="sem-label">Etapa 1 · Diagnóstico y base · Semanas 1–8 · Mayo–Junio 2026</span><div class="sem-line"></div></div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e1c">Sem 1 · Act 1</span>
+      <span class="act-titulo">Sesión de arranque y alineación estratégica</span>
+      <span class="act-fecha">Máx. 8 may 2026</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-manda">Prepara</span><span class="itext">Revisa la propuesta de consultoría. Anota cualquier duda o ajuste antes de la sesión.</span></div>
+      <div class="item"><span class="itag tag-valida">Valida</span><span class="itext">Cuando Daniel lea los compromisos en voz alta, corrígelos si algo no quedó como lo entendiste.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Acta de arranque firmada</strong> — el punto de referencia de toda la consultoría.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e1c">Sem 1 · Act 2</span>
+      <span class="act-titulo">Priorización de los 12 hallazgos diagnósticos</span>
+      <span class="act-fecha">Máx. 8 may 2026</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Califica cada hallazgo del 1 al 3 en urgencia, impacto y facilidad. No hay respuesta correcta — tu percepción es la que vale.</span></div>
+      <div class="item"><span class="itag tag-decide">Decide</span><span class="itext">Aprueba el orden final. Si algo no te parece correcto, cámbialo aquí — este orden define por dónde empieza todo.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Matriz de priorización</strong> con los 12 hallazgos calificados y los 3 críticos marcados.</span></div>
+    </div>
+  </div>
+
+  <div class="sem-intermedia">
+    <span class="sim-label">Sem 2</span>
+    <span class="sim-text">Piensa qué números usas para saber si el negocio va bien o mal, quién los tiene y cada cuánto se generan.</span>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e1c">Sem 3 · Act 3</span>
+      <span class="act-titulo">Diseño del tablero de indicadores de gestión</span>
+      <span class="act-fecha">Máx. 22 may 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H2 · Dependencia excesiva de ventas como indicador</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Elige 8-12 indicadores que te digan algo real sobre CORSAL. Para cada uno: quién tiene el dato, cada cuánto y cuál sería una meta razonable.</span></div>
+      <div class="item"><span class="itag tag-decide">Decide</span><span class="itext">Nombra hoy a la persona que va a alimentar el tablero cada mes. Si no hay nadie asignado, el tablero no sirve.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Tablero de KPIs en Google Sheets</strong> con acceso de editor.</span></div>
+      <div class="nota"><span>⚠</span><div>Un tablero sin responsable de actualización queda obsoleto en semanas. Esta decisión es tuya.</div></div>
+    </div>
+  </div>
+
+  <div class="sem-intermedia">
+    <span class="sim-label">Sem 4</span>
+    <span class="sim-text"><strong>Acción tuya:</strong> Daniel te pedirá el organigrama de CORSAL. Reúnelo y envíalo antes de que empiece la semana 5.</span>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e1c">Sem 5 · Act 4</span>
+      <span class="act-titulo">Diagnóstico de estructura organizacional</span>
+      <span class="act-fecha">Máx. 5 jun 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgos</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H1 · Crecimiento sin estructura suficiente</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H6 · Falta de manuales y procesos claros</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-manda">Manda (sem 4)</span><span class="itext">Organigrama actual o lista de todas las áreas con quién está a cargo. No tiene que ser perfecto.</span></div>
+      <div class="item"><span class="itag tag-valida">Valida</span><span class="itext">Confirma que el diagnóstico refleja la realidad antes de que sea un documento oficial.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Diagnóstico de estructura</strong> con hallazgos y propuesta de ajustes.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e1c">Sem 6 · Act 5</span>
+      <span class="act-titulo">Diagnóstico de rotación de personal</span>
+      <span class="act-fecha">Máx. 12 jun 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgos</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H9 · Rotación ligada a problemas de gestión</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H8 · Reclutamiento costoso y poco eficiente</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-manda">Manda (sem 5)</span><span class="itext">Lista de salidas últimos 12 meses: nombre, área, puesto, fecha, motivo si lo tienen. Más vacantes abiertas hoy y desde cuándo.</span></div>
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Responde honestamente cuál es la razón real de las salidas, no solo la oficial. Eso es lo que acelera el proceso.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Reporte de rotación</strong> con causas clasificadas, costo estimado y recomendaciones iniciales.</span></div>
+    </div>
+  </div>
+
+  <div class="sem-intermedia">
+    <span class="sim-label">Sem 7</span>
+    <span class="sim-text">Piensa en el recorrido real del cliente después de que firma: paso a paso, quién hace qué, hasta que recibe lo que compró.</span>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e1c">Sem 8 · Act 6</span>
+      <span class="act-titulo">Mapeo del proceso postventa</span>
+      <span class="act-fecha">Máx. 26 jun 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgos</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H4 · Procesos postventa poco ágiles</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H5 · Cliente desatendido entre áreas</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Describe el proceso tal como ocurre hoy, no como debería. Confirma que el diagrama final refleja la realidad.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Diagrama del proceso postventa</strong> con puntos críticos marcados y 3 mejoras inmediatas.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e1c">Sem 8 · Act 7</span>
+      <span class="act-titulo">Presentación ejecutiva de cierre Etapa 1</span>
+      <span class="act-fecha">Máx. 26 jun 2026</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Revisa el plan de Etapa 2 con calma. Si alguna fecha o actividad no encaja con tus compromisos, ajústalo aquí.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Presentación de cierre Etapa 1</strong> + plan validado de Etapa 2.</span></div>
+      <div class="nota"><span>⚠</span><div>A partir de aquí el trabajo cambia — en Etapa 2 ya se interviene. Llega con claridad sobre tu disponibilidad.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ETAPA 2 ========== -->
+<div class="etapa-block" data-etapa="e2">
+  <div class="sem-row"><div class="sem-line"></div><span class="sem-label">Etapa 2 · Intervención estructural · Semanas 9–24 · Julio–Octubre 2026</span><div class="sem-line"></div></div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e2c">Sem 10 · Act 8</span>
+      <span class="act-titulo">Rediseño del proceso ventas-administración</span>
+      <span class="act-fecha">Máx. 10 jul 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H3 · Fricción entre ventas y administración</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Nombra los 3 puntos de mayor conflicto entre ventas y admin. Aprueba el proceso nuevo y el formato de traspaso.</span></div>
+      <div class="item"><span class="itag tag-decide">Comunica</span><span class="itext">Respalda el cambio frente a ambas áreas. Sin tu respaldo explícito, el equipo lo resistirá.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Proceso ventas-admin documentado</strong> + formato de traspaso aprobado.</span></div>
+      <div class="nota-clave"><span>🔑</span><div>Este es el cambio más visible de la Etapa 2. Tu respaldo es lo que lo hace funcionar — o no.</div></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e2c">Sem 12 · Act 9</span>
+      <span class="act-titulo">Estandarización del proceso postventa</span>
+      <span class="act-fecha">Máx. 24 jul 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgos</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H4 · Procesos postventa poco ágiles</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H6 · Falta de manuales y procesos claros</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">Valida</span><span class="itext">Lee el borrador con el gerente del área. Confirma que cualquier persona nueva puede seguirlo sin explicación.</span></div>
+      <div class="item"><span class="itag tag-decide">Decide</span><span class="itext">Define la fecha de inicio de uso y comunica el cambio al equipo. Tú o el gerente hacen esa comunicación.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Manual postventa v1</strong> + checklist operativo.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e2c">Sem 14 · Act 10</span>
+      <span class="act-titulo">Protocolo de atención al cliente entre áreas</span>
+      <span class="act-fecha">Máx. 7 ago 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H5 · Cliente desatendido entre áreas</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">Valida</span><span class="itext">Confirma que los tiempos y canales son realistas. Especial atención al traspaso: ¿quién le avisa al cliente cuando cambia su punto de contacto?</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Protocolo de atención al cliente</strong> por etapa del proceso.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e2c">Sem 17 · Act 11</span>
+      <span class="act-titulo">Manual de funciones por puesto y área</span>
+      <span class="act-fecha">Máx. 28 ago 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgos</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H6 · Falta de manuales y procesos claros</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H1 · Crecimiento sin estructura suficiente</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">Valida</span><span class="itext">Pide a cada gerente que revise su ficha con cuidado. Lo que diga la ficha es lo que se va a exigir — no es un documento decorativo.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Manual de funciones</strong> con fichas de 8-10 puestos clave validadas por área.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e2c">Sem 19 · Act 12</span>
+      <span class="act-titulo">Validación y ajuste del tablero de indicadores</span>
+      <span class="act-fecha">Máx. 11 sep 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H2 · Dependencia excesiva de ventas como indicador</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-manda">Revisa antes</span><span class="itext">Abre el tablero de KPIs. Si no tiene datos de los últimos 2 meses, trae la respuesta de por qué.</span></div>
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Sé honesto: elimina lo que nunca miras, agrega lo que sí usas para tomar decisiones.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Tablero v2</strong> depurado con responsables confirmados.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e2c">Sem 21 · Act 13</span>
+      <span class="act-titulo">Revisión de avances y ajuste del plan Etapa 2</span>
+      <span class="act-fecha">Máx. 25 sep 2026</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Para lo completado: ¿se usa en la operación diaria o quedó guardado? Para lo atrasado: di con claridad qué lo bloqueó.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Minuta con plan de desbloqueo</strong>: qué se hace, quién y para cuándo.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e2c">Sem 24 · Act 14</span>
+      <span class="act-titulo">Presentación ejecutiva de cierre Etapa 2</span>
+      <span class="act-fecha">Máx. 16 oct 2026</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Revisa el plan de Etapa 3. Considera la disponibilidad de tus gerentes — la siguiente etapa requiere que ellos participen activamente.</span></div>
+      <div class="item"><span class="itag tag-decide">Comunica</span><span class="itext">Anticipa a tus gerentes que viene la Etapa 3 de liderazgo y personas.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Presentación de cierre Etapa 2</strong> + plan validado de Etapa 3.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ETAPA 3 ========== -->
+<div class="etapa-block" data-etapa="e3">
+  <div class="sem-row"><div class="sem-line"></div><span class="sem-label">Etapa 3 · Personas y liderazgo · Semanas 25–42 · Noviembre 2026–Febrero 2027</span><div class="sem-line"></div></div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e3c">Sem 27 · Act 15</span>
+      <span class="act-titulo">Diseño de ruta de desarrollo para gerentes</span>
+      <span class="act-fecha">Máx. 6 nov 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H7 · Desarrollo de líderes no institucionalizado</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Identifica las 2-3 habilidades más urgentes que les faltan a tus gerentes para gestionar bien a su equipo.</span></div>
+      <div class="item"><span class="itag tag-decide">Comunica</span><span class="itext">Dile directamente a tus gerentes que este programa es prioritario para ti — no optativo.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Ruta de desarrollo gerencial</strong> con módulos, fechas tentativas y forma de medir el avance.</span></div>
+      <div class="nota-clave"><span>🔑</span><div>Los gerentes se comprometen exactamente en la medida en que perciben que tú lo tomas en serio.</div></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e3c">Sem 29 · Act 16</span>
+      <span class="act-titulo">Rediseño del proceso de reclutamiento</span>
+      <span class="act-fecha">Máx. 20 nov 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgos</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H8 · Reclutamiento costoso y poco eficiente</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H9 · Rotación ligada a problemas de gestión</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Describe cómo contratan hoy. Revisa que los perfiles reflejen lo que realmente se necesita en los puestos clave.</span></div>
+      <div class="item"><span class="itag tag-decide">Decide</span><span class="itext">Nombra la persona responsable de aplicar el nuevo proceso de reclutamiento.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Proceso de reclutamiento rediseñado</strong> + perfiles de los 5 puestos que más rotan.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e3c">Sem 32 · Act 17</span>
+      <span class="act-titulo">Plan de capacitación práctico</span>
+      <span class="act-fecha">Máx. 11 dic 2026</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H10 · Necesidad clara de capacitación</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Confirma los errores operativos más repetidos que podrían eliminarse con capacitación específica.</span></div>
+      <div class="item"><span class="itag tag-decide">Decide</span><span class="itext">Asigna a cada gerente como responsable de hacer seguimiento después de cada sesión de capacitación en su área.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Plan de capacitación</strong> con temas concretos, calendario de 3 meses y responsables.</span></div>
+      <div class="nota"><span>⚠</span><div>Capacitación sin seguimiento no cambia nada. El seguimiento es responsabilidad de los gerentes, no de Daniel.</div></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e3c">Sem 34 · Act 18</span>
+      <span class="act-titulo">Primera intervención de liderazgo con gerentes</span>
+      <span class="act-fecha">Máx. 8 ene 2027</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgos</span><span class="hbadge"><span class="hdot" style="background:#EF9F27"></span>H7 · Desarrollo de líderes no institucionalizado</span><span class="hbadge"><span class="hdot" style="background:#639922"></span>H12 · Apertura al cambio del equipo gerencial</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-convoca">Convoca</span><span class="itext">Llama a los gerentes y confirma asistencia de todos. Si alguno no puede en la fecha acordada, ajusten antes — no después.</span></div>
+      <div class="item"><span class="itag tag-valida">Participa</span><span class="itext">Asiste como integrante activo, no como evaluador. Tu presencia activa autoriza a los gerentes a ser honestos.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Lista de compromisos individuales</strong> de cada gerente (1 acción concreta a partir de la semana siguiente).</span></div>
+      <div class="nota-clave"><span>🔑</span><div>Estos compromisos se van a revisar en las sesiones siguientes. Son el insumo para medir si el liderazgo cambió.</div></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e3c">Sem 36 · Act 19</span>
+      <span class="act-titulo">Seguimiento a causas de rotación</span>
+      <span class="act-fecha">Máx. 22 ene 2027</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#E24B4A"></span>H9 · Rotación ligada a problemas de gestión</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-manda">Manda antes</span><span class="itext">Datos de rotación de los últimos 4 meses.</span></div>
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Responde con honestidad si las acciones implementadas se están usando realmente, o solo en papel.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Reporte comparativo de rotación</strong> con acciones correctivas para lo que no mejoró.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e3c">Sem 40 · Act 20</span>
+      <span class="act-titulo">Revisión de avances Etapa 3</span>
+      <span class="act-fecha">Máx. 29 ene 2027</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Responde las 3 preguntas: ¿gerentes aplican lo del taller? ¿nuevo reclutamiento se usa? ¿rotación bajó, subió o igual?</span></div>
+      <div class="item"><span class="itag tag-decide">Empieza a pensar</span><span class="itext">¿Quién en tu equipo será el custodio de cada proceso cuando termine la consultoría?</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Minuta</strong> con lo que hay que reforzar antes del cierre final.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e3c">Sem 42 · Act 21</span>
+      <span class="act-titulo">Presentación ejecutiva de cierre Etapa 3</span>
+      <span class="act-fecha">Máx. 19 feb 2027</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Observa cuántos gerentes cumplieron sus compromisos del taller. Esa es la imagen real del liderazgo en CORSAL hoy.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Presentación de cierre Etapa 3</strong> con métricas de personas y estado del liderazgo.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ETAPA 4 ========== -->
+<div class="etapa-block" data-etapa="e4">
+  <div class="sem-row"><div class="sem-line"></div><span class="sem-label">Etapa 4 · Consolidación y cierre · Semanas 43–52 · Marzo–Mayo 2027</span><div class="sem-line"></div></div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e4c">Sem 44 · Act 22</span>
+      <span class="act-titulo">Estrategia base de reputación digital</span>
+      <span class="act-fecha">Máx. 5 mar 2027</span>
+    </div>
+    <div class="hall-row"><span class="hall-label">Hallazgo</span><span class="hbadge"><span class="hdot" style="background:#639922"></span>H11 · Debilidad en reputación e imagen digital</span></div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-manda">Revisa antes</span><span class="itext">Busca CORSAL en Google Maps y Facebook. Llega a la sesión con una idea de cuántos comentarios hay y de qué tipo.</span></div>
+      <div class="item"><span class="itag tag-decide">Decide</span><span class="itext">Nombra a la persona responsable de monitorear y responder comentarios una vez por semana.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Protocolo de respuesta a comentarios</strong> + estrategia de reseñas positivas.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e4c">Sem 47 · Act 23</span>
+      <span class="act-titulo">Reporte de impacto de la consultoría</span>
+      <span class="act-fecha">Máx. 26 mar 2027</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">Aporta</span><span class="itext">Perspectiva cualitativa: ¿el equipo trabaja más ordenado? ¿menos conflictos entre ventas y admin? ¿los gerentes deciden más solos?</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Reporte de impacto</strong>: antes vs después + lo que no se logró + recomendaciones para los próximos 6 meses.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e4c">Sem 49 · Act 24</span>
+      <span class="act-titulo">Consolidación de entregables y transferencia institucional</span>
+      <span class="act-fecha">Máx. 16 abr 2027</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-decide">Decide</span><span class="itext">Asigna un custodio concreto por cada documento clave del Drive. Que esa persona sepa qué implica serlo.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Drive organizado</strong> + índice de todos los materiales con instrucciones de uso.</span></div>
+      <div class="nota-clave"><span>🔑</span><div>Esta sesión determina si el trabajo de 13 meses se sostiene o se pierde. Sin custodios asignados, los materiales quedan obsoletos.</div></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e4c">Sem 51 · Act 25</span>
+      <span class="act-titulo">Sesión de revisión final y aprendizajes</span>
+      <span class="act-fecha">Máx. 30 abr 2027</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">Responde</span><span class="itext">Sin filtros: ¿qué fue lo más valioso? ¿qué cambió en tu forma de gestionar? ¿qué harías diferente si empezaras de nuevo?</span></div>
+      <div class="item"><span class="itag tag-decide">Decides</span><span class="itext">Sales con compromisos concretos para los próximos 6 meses sin consultoría.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Minuta de cierre</strong> con aprendizajes, riesgos de retroceso y tu hoja de ruta post-consultoría.</span></div>
+    </div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-top">
+      <span class="act-num e4c">Sem 52 · Act 26</span>
+      <span class="act-titulo">Presentación ejecutiva final de la consultoría</span>
+      <span class="act-fecha">Máx. 28 may 2027</span>
+    </div>
+    <div class="act-body">
+      <div class="item"><span class="itag tag-valida">En sesión</span><span class="itext">Escucha el recorrido completo de los 13 meses. Lee las recomendaciones para los próximos 6 meses — son la guía post-consultoría.</span></div>
+      <div class="item"><span class="itag tag-opcional">Opcional</span><span class="itext">Puedes invitar a tus gerentes para que también vean el antes y el después.</span></div>
+      <div class="item"><span class="itag tag-recibe">Recibe</span><span class="itext"><strong>Presentación final</strong> — el documento institucional de cierre de toda la consultoría.</span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- fin container -->
+
+
+<div class="footer">Summa Human · Daniel Tapia Sánchez · Grupo CORSAL 2026–2027</div>
+
+<script>
+  // Tabs principales
+  function verSeccion(id, btn) {
+    document.querySelectorAll('.seccion-principal').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.main-tab').forEach(b => { b.classList.remove('activo'); b.classList.add('inactivo'); });
+    document.getElementById('seccion-' + id).classList.add('visible');
+    btn.classList.add('activo'); btn.classList.remove('inactivo');
+    // Mover sticky filtros del calendario
+    if (id === 'calendario') {
+      document.getElementById('filtros-cal').style.position = 'sticky';
+      document.getElementById('filtros-cal').style.top = '0';
+      document.getElementById('filtros-cal').style.zIndex = '100';
+    }
+  }
+
+  // Filtros etapa (guía)
+  function verEtapa(num, btn) {
+    document.querySelectorAll('.etapa-panel').forEach(p => p.classList.remove('visible'));
+    document.querySelectorAll('.btn-etapa').forEach(b => b.classList.remove('activo'));
+    document.getElementById('etapa-' + num).classList.add('visible');
+    btn.classList.add('activo');
+  }
+
+  // Filtros etapa (calendario)
+  function filtrarCal(etapa, btn) {
+    document.querySelectorAll('#filtros-cal .btn-f').forEach(b => b.classList.remove('act'));
+    btn.classList.add('act');
+    document.querySelectorAll('.etapa-block').forEach(b => {
+      b.classList.toggle('vis', etapa === 'todas' || b.dataset.etapa === etapa);
+    });
+  }
+
+  // Toggle actividades (guía)
+  function toggle(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.act-chevron');
+    const isOpen = body.classList.contains('visible');
+    body.classList.toggle('visible', !isOpen);
+    chevron.classList.toggle('open', !isOpen);
+  }
+</script>
+
+</body></html>
